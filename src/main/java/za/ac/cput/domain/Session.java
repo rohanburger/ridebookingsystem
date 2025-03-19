@@ -6,6 +6,7 @@ package za.ac.cput.domain;
     Date:19/03/2025
 */
 public class Session {
+    private String sessionid;
     private Passenger passenger;
     private Driver driver;
     private Location location;
@@ -24,6 +25,7 @@ public class Session {
         this.passengerCount = builder.passengerCount;
         this.sessionStatus = builder.sessionStatus;
         this.sessionAmount = builder.sessionAmount;
+        this.sessionid = builder.sessionid;
     }
 
     public Passenger getPassenger() {
@@ -50,6 +52,10 @@ public class Session {
         return sessionAmount;
     }
 
+    public String getSessionid() {
+        return sessionid;
+    }
+
     @Override
     public String toString() {
         return "Session{" +
@@ -65,6 +71,7 @@ public class Session {
 
 
     public static class Builder {
+        private String sessionid;
         private Passenger passenger;
         private Driver driver;
         private Location location;
@@ -105,6 +112,11 @@ public class Session {
 
         public Builder setSessionAmount(float sessionAmount) {
             this.sessionAmount = sessionAmount;
+            return this;
+        }
+
+        public Builder setSessionid(String sessionid) {
+            this.sessionid = sessionid;
             return this;
         }
 
