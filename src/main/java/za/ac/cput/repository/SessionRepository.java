@@ -2,28 +2,61 @@ package za.ac.cput.repository;
 
 import za.ac.cput.domain.Session;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-public class SessionRepository {
-    private final Map<String, Session> sessions = new HashMap<>();
+public class SessionRepository implements ISessionRepository {
 
-    public void create(String sessionId, Session session){
-        sessions.put(sessionId,session);
+    private static ISessionRepository repository = null;
+    private List<Session> sessionList;
+
+    private SessionRepository() {
+        sessionList = new ArrayList<Session>();
     }
-    public Session read(String sessionId) {
-        return sessions.get(sessionId);
-    }
 
-    // UPDATE: Updates an existing session
-    public void update(String sessionId, Session newSession) {
-        if (sessions.containsKey(sessionId)) {
-            sessions.put(sessionId, newSession);
+    public static ISessionRepository getRepository() {
+        if (repository == null) {
+            repository = new SessionRepository();
         }
+        return repository;
     }
 
-    // DELETE: Removes a session from the repository
-    public void delete(String sessionId) {
-        sessions.remove(sessionId);
+    @Override
+    public List<Session> getAll() {
+        return new ArrayList<>(sessionList);
+    }
+
+    @Override
+    public boolean create(Session session) {
+       return sessionList.add(session);
+    }
+
+    @Override
+    public Session read(String sessionId) {
+        for (Session session : sessionList) {
+            if (session.getSessionid().equals(sessionId)) {
+                return session;
+            }
+
+        }
+        return null;
+    }
+
+    @Override
+    public boolean update(String sessionId,Session session) {
+        for (Session sessionlist : sessionList) {
+            if (sessionlist.getSessionid().equals(sessionId)) {
+                sessionList.remove(sessionlist);
+                sessionList.add(session);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delete(String sessionId) {
+        return sessionList.remove(sessionId);
+
     }
 }
