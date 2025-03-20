@@ -9,7 +9,7 @@ import za.ac.cput.helper.SessionHelper;
     Date:19/03/2025
 */
 public class SessionFactory {
-    public static Session createSession(Passenger passenger,Driver driver,Location location,String passengerCount, float sessionAmount,String sessionStatus){
+    public static Session createSession(String sessionID,Passenger passenger,Driver driver,Location location,String passengerCount, float sessionAmount,String sessionStatus){
         if (SessionHelper.isNullOrEmpty(passengerCount) || SessionHelper.isNullOrEmpty(sessionStatus)){
             System.out.println( "Error:Passenger Count or Session Status is null or empty");
             if (SessionHelper.notValidStatus(sessionStatus)){
@@ -22,6 +22,7 @@ public class SessionFactory {
         }
 
         return new Session.Builder()
+                .setSessionid(sessionID)
                 .setPassenger(passenger)
                 .setDriver(driver)
                 .setLocation(location)
