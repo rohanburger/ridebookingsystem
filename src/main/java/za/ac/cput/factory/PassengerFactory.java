@@ -6,6 +6,7 @@ package za.ac.cput.factory;
     Date: 20/03/2025
 */
 
+import za.ac.cput.domain.BankDetails;
 import za.ac.cput.domain.Passenger;
 import za.ac.cput.helper.PassengerHelper;
 
