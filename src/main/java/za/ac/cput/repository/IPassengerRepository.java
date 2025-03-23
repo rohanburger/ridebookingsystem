@@ -1,5 +1,11 @@
 package za.ac.cput.repository;
 
+/*  PassengerFactory.java
+    Passenger repository class
+    Author: Kelsey-Jane Fabe
+    Date: 23/03/2025
+*/
+
 import za.ac.cput.domain.Passenger;
 import java.util.List;
 
