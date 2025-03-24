@@ -1,19 +1,30 @@
 package za.ac.cput.factory;
 import org.w3c.dom.ls.LSOutput;
 import za.ac.cput.domain.Location;
-import za.ac.cput.helper.SessionHelper;
+import za.ac.cput.helper.LocationHelper;
+
 
 public class LocationFactory {
+    
+    
+    
     public static Location createLocation(String locationId, String pickupStreet, String pickupSuburb, String pickupCity, String dropoffStreet, String dropoffSuburb, String dropoffCity){
-        if(SessionHelper.isNullOrEmpty(locationId)){
+        if(LocationHelper.isEmptyOrNull(locationId)){
             System.out.println("Location ID is null or empty");
         }
-        if(SessionHelper.isNullOrEmpty(pickupStreet)||SessionHelper.isNullOrEmpty(pickupSuburb)||SessionHelper.isNullOrEmpty(pickupCity)){
+        if(LocationHelper.isEmptyOrNull(pickupStreet)||LocationHelper.isEmptyOrNull(pickupSuburb)||LocationHelper.isEmptyOrNull(pickupCity)){
             System.out.println("Pickup Infromation is incomplete");
         }
-        if(SessionHelper.isNullOrEmpty(dropoffStreet)||SessionHelper.isNullOrEmpty(dropoffSuburb)||SessionHelper.isNullOrEmpty(dropoffCity)){
+        if(LocationHelper.isEmptyOrNull(dropoffStreet)||LocationHelper.isEmptyOrNull(dropoffSuburb)||LocationHelper.isEmptyOrNull(dropoffCity)){
             System.out.println("Dropoff Infromation is incomplete");
         }
+
+        Location location=new Location();
+
+        if(LocationHelper.isEqual(location.pickupDetails(),location.dropoffDetails())){
+            System.out.println("Pickup Location and Dropoff Location cannot be the same");
+        }
+        
 
         return new Location.LocationBuilder()
                 .setLocationId(locationId)
