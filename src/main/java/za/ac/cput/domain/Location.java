@@ -10,6 +10,10 @@ public class Location {
     private String dropoffSuburb;
     private String dropoffCity;
 
+    public Location(){
+
+    }
+
 
     public Location(LocationBuilder builder) {
         this.locationId = builder.locationId;
@@ -48,6 +52,7 @@ public class Location {
     public String getDropoffCity() {
         return dropoffCity;
     }
+
 
     public String pickupDetails() {
         return pickupStreet + " " + pickupSuburb + " " + pickupCity;
