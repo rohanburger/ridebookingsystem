@@ -13,10 +13,10 @@ public class BankDetails {
     private String bankCardCVV;
 
 
-    public BankDetails (String bankCardNum, String bankCardDate, String bankCardCVV) {
-        this.bankCardNum = bankCardNum;
-        this.bankCardDate = bankCardDate;
-        this.bankCardCVV = bankCardCVV;
+    public BankDetails (Builder builder) {
+        this.bankCardNum = builder.bankCardNum;
+        this.bankCardDate =builder.bankCardDate;
+        this.bankCardCVV = builder.bankCardCVV;
     }
 
     public String getBankCardNum() {
@@ -32,13 +32,12 @@ public class BankDetails {
     }
 
     @Override
-    public String toString {
-        String s = "BankDetails{" +
-                "bankCardNum='" + bankCardNum + '\'' +
-                ", bankCardDate='" + bankCardDate + '\'' +
-                ", bankCardCVV='" + bankCardCVV + '\'' +
-                '}';
-        return s;
+    public String toString(){
+        return "BankDetails{" +
+            "bankCardNum='" + bankCardNum + '\'' +
+            ", bankCardDate='" + bankCardDate + '\'' +
+            ", bankCardCVV='" + bankCardCVV + '\'' +
+            '}';
     }
 
     public static class Builder {
