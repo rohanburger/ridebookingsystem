@@ -27,6 +27,19 @@ public class DriverFactory {
             System.out.println("Error: Driver License Number is invalid");
         }
 
-        return new Driver(driverId, driverName, driverSurname, driverPhoneNum, driverEmail, licenseNum);
+        return new Driver.Builder()
+                .setDriverId(driverId)
+                .setDriverName(driverName)
+                .setDriverSurname(driverSurname)
+                .setDriverPhoneNum(driverPhoneNum)
+                .setDriverEmail(driverEmail)
+                .setLicenseNum(licenseNum)
+                .build()
+                ;
+
+
+
+
+
     }
 }

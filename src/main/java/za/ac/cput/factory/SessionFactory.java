@@ -12,11 +12,10 @@ public class SessionFactory {
     public static Session createSession(String sessionID, Passenger passenger, Driver driver, Location location, String passengerCount, float sessionAmount, String sessionStatus){
         if (SessionHelper.isNullOrEmpty(passengerCount) || SessionHelper.isNullOrEmpty(sessionStatus)){
             System.out.println( "Error:Passenger Count or Session Status is null or empty");
-            if (SessionHelper.notValidStatus(sessionStatus)){
-                System.out.println("Error:Session Status is not valid");
-            }
         }
-
+        if (SessionHelper.notValidStatus(sessionStatus)){
+            System.out.println("Error:Session Status is not valid");
+        }
         if (SessionHelper.tooLowAmountOrEmpty(sessionAmount)){
             System.out.println("Error:Session Amount is too low or empty");
         }
