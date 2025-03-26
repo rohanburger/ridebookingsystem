@@ -13,19 +13,31 @@ public class DriverFactory {
                                       String driverPhoneNum, String driverEmail, String licenseNum) {
         if (DriverHelper.isNullOrEmpty(driverName) || DriverHelper.isNullOrEmpty(driverSurname)) {
             System.out.println("Error: Driver Name or Surname is null or empty");
+            return null;
         }
 
         if (DriverHelper.isInvalidPhoneNumber(driverPhoneNum)) {
             System.out.println("Error: Driver Phone Number is invalid");
+            return null;
         }
 
         if (DriverHelper.isInvalidEmail(driverEmail)) {
             System.out.println("Error: Driver Email is invalid");
+            return null;
         }
 
         if (DriverHelper.isInvalidLicense(licenseNum)) {
             System.out.println("Error: Driver License Number is invalid");
+            return null;
         }
 
+        return new Driver.Builder()
+                .setDriverId(driverId)
+                .setDriverName(driverName)
+                .setDriverSurname(driverSurname)
+                .setDriverPhoneNum(driverPhoneNum)
+                .setDriverEmail(driverEmail)
+                .setLicenseNum(licenseNum)
+                .build();
     }
 }
