@@ -15,13 +15,6 @@ public class Driver {
     private String driverEmail;
     private String licenseNum;
     
-    private Driver(Builder builder) {
-        this.driverId = builder.driverId;
-        this.driverName = builder.driverName;
-        this.driverSurname = builder.driverSurname;
-        this.driverPhoneNum = builder.driverPhoneNum;
-        this.driverEmail = builder.driverEmail;
-        this.licenseNum = builder.licenseNum;
     }
 
     public String getDriverId() {
@@ -48,47 +41,7 @@ public class Driver {
         return licenseNum;
     }
 
-    public static class Builder {
-        private String driverId;
-        private String driverName;
-        private String driverSurname;
-        private String driverPhoneNum;
-        private String driverEmail;
-        private String licenseNum;
-
-        public Builder setDriverId(String driverId) {
-            this.driverId = driverId;
-            return this;
-        }
-
-        public Builder setDriverName(String driverName) {
-            this.driverName = driverName;
-            return this;
-        }
-
-        public Builder setDriverSurname(String driverSurname) {
-            this.driverSurname = driverSurname;
-            return this;
-        }
-
-        public Builder setDriverPhoneNum(String driverPhoneNum) {
-            this.driverPhoneNum = driverPhoneNum;
-            return this;
-        }
-
-        public Builder setDriverEmail(String driverEmail) {
-            this.driverEmail = driverEmail;
-            return this;
-        }
-
-        public Builder setLicenseNum(String licenseNum) {
             this.licenseNum = licenseNum;
-            return this;
-        }
-
-        public Driver build() {
-            return new Driver(this);
-        }
     }
 
     @Override
