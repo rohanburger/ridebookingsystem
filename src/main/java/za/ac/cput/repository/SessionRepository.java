@@ -29,13 +29,14 @@ public class SessionRepository implements ISessionRepository {//Implements the I
 
     @Override
     public List<Session> getAll() {
-        System.out.println(sessionList);
+        System.out.println("All Sessions:"+'\n'+sessionList);
         return new ArrayList<>(sessionList);//returns arraylist containign all sessions in the sessionlist
     }
 
     @Override
     public boolean create(Session session) {
-        System.out.println("Session created"+session);
+        System.out.println("Session Created"+'\n'+session);
+
        return sessionList.add(session);//Adds session object to sessionList
     }
 
@@ -43,8 +44,8 @@ public class SessionRepository implements ISessionRepository {//Implements the I
     public Session read(String sessionId) {
         for (Session session : sessionList) {//Loops through session list
             if (session.getSessionid().equals(sessionId)) {//Checks if any session ID equals to a session
-                System.out.println("Session read"+session);
-                return session;//returnse session that equal to sessionID
+                System.out.println("Session Read"+'\n'+session);
+                return session;//returns session that equal to sessionID
             }
 
         }
@@ -57,6 +58,7 @@ public class SessionRepository implements ISessionRepository {//Implements the I
             if (sessionlist.getSessionid().equals(sessionId)) {//Checks if any session ID equals to a session
                 sessionList.remove(sessionlist);//Removes session that equals to sessionID
                 sessionList.add(session);//Then adds that session back but the updated version
+                System.out.println("Session Updated"+'\n'+session);
                 return true;
             }
         }
@@ -68,6 +70,7 @@ public class SessionRepository implements ISessionRepository {//Implements the I
         for (int i = 0; i < sessionList.size(); i++) {//Loops through sessionlist
             if (sessionList.get(i).getSessionid().equals(sessionId)) {//Check is the session ID equal to the session ID and index i
                 sessionList.remove(i);//Removes the session object at I if equals to one another
+                System.out.println("Session Deleted that equal to "+sessionId+" has been deleted");
                 return true;
             }
         }
@@ -75,5 +78,6 @@ public class SessionRepository implements ISessionRepository {//Implements the I
     }
     public void clearSessions() {
         sessionList.clear();//Clears the arraylist
+        System.out.println("All session have been cleared");
     }
 }

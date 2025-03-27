@@ -58,7 +58,8 @@ public class Session {
 
     @Override
     public String toString() {//To String displays the attribute values as a string
-        return "Session"+'\n'+
+        return "============================"+'\n'+
+                "Session Object:"+'\n'+
                 "============================"+'\n'+
                 "Session id: " + sessionid +'\n'+
                 "PassengerCount: "+ passengerCount+ '\n'+
@@ -66,7 +67,8 @@ public class Session {
                 "Session Amount: " + sessionAmount +'\n'+
                 passenger +'\n'+
                 driver +'\n'+
-                location+'\n' ;
+                location+'\n'+
+                "============================"+'\n';
     }
 
 
