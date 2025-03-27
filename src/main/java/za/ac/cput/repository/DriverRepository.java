@@ -1,9 +1,7 @@
 package za.ac.cput.repository;
 
 import za.ac.cput.domain.Driver;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /*
     DriverRepository.java
@@ -12,12 +10,12 @@ import java.util.Optional;
     Date: 22/03/2025
 */
 
-public class DriverRepository {
+public class DriverRepository implements IDriverRepository {
     private static DriverRepository repository = null;
     private Map<String, Driver> driverDB;
 
     private DriverRepository() {
-        this.driverDB = new HashMap<>();
+        this.driverDB = Collections.synchronizedMap(new HashMap<>());
     }
 
     public static DriverRepository getInstance() {
@@ -27,24 +25,24 @@ public class DriverRepository {
         return repository;
     }
 
+    @Override
     public Driver save(Driver driver) {
         driverDB.put(driver.getDriverId(), driver);
         return driver;
     }
 
-    public Optional<Driver> findById(String driverId) {
-        return Optional.ofNullable(driverDB.get(driverId));
+    @Override
+    public Optional<Driver> findById(String id) {
+        return Optional.ofNullable(driverDB.get(id));
     }
 
-    public boolean delete(String driverId) {
-        if (driverDB.containsKey(driverId)) {
-            driverDB.remove(driverId);
-            return true;
-        }
-        return false;
+    @Override
+    public List<Driver> findAll() {
+        return new ArrayList<>(driverDB.values());
     }
 
-    public Map<String, Driver> findAll() {
-        return driverDB;
+    @Override
+    public boolean delete(String id) {
+        return driverDB.remove(id) != null;
     }
 }
