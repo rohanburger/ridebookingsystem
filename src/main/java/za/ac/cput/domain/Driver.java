@@ -15,8 +15,8 @@ public class Driver {
     private String driverEmail;
     private String licenseNum;
 
-    public Driver() {
 
+    public Driver() {
     }
 
     public Driver(Builder builder) {
@@ -105,6 +105,5 @@ public class Driver {
             return new Driver(this);
         }
     }
-
 
 }
