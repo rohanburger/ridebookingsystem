@@ -12,6 +12,10 @@ public class BankDetails {
     private String bankCardDate;
     private String bankCardCVV;
 
+    public BankDetails() {
+
+    }
+
 
     public BankDetails (Builder builder) {
         this.bankCardNum = builder.bankCardNum;
