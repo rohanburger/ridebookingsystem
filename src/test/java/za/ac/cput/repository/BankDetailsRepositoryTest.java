@@ -1,5 +1,11 @@
 package za.ac.cput.repository;
 
+/*
+BankDetailsRepository.java
+Repository Implementation
+Author: Romano Deon Christians
+Date:27/03/2025
+        */
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.BankDetails;
