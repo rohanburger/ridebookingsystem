@@ -11,9 +11,9 @@ public class LocationHelper {
 
     public static Boolean isEqual(String a, String b){
         if(a.equals(b)){
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
 

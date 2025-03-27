@@ -19,11 +19,9 @@ public class LocationFactory {
             System.out.println("Dropoff Infromation is incomplete");
         }
 
-        Location location=new Location();
-        String pickupDetails=location.getPickupStreet() + " " + location.getPickupSuburb() + " " + location.getPickupCity();
-        String dropoffDetails=location.getDropoffStreet() + " " + location.getDropoffSuburb() + " " + location.getDropoffCity();
 
-        if(LocationHelper.isEqual(pickupDetails,dropoffDetails)){
+
+        if(LocationHelper.isEqual(pickupStreet,dropoffStreet)&&LocationHelper.isEqual(pickupSuburb,dropoffSuburb)&&LocationHelper.isEqual(pickupCity,dropoffCity)){
             System.out.println("Pickup Location and Dropoff Location cannot be the same");
         }
         

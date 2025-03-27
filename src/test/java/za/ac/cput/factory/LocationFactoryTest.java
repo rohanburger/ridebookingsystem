@@ -80,7 +80,9 @@ public class LocationFactoryTest {
     void createLocation_pickupAndDropoffNotEqual(){
         Location location=LocationFactory.createLocation("101","Cornwall","Woodstock","Cape Town","Cornwall","Woodstock","Cape Town");
         assertNotNull(location);
-        assertNotEquals(location2.dropoffDetails(),location2.pickupDetails());
+       assertEquals(location.getPickupStreet(),location.getDropoffStreet());
+       assertEquals(location.getPickupSuburb(),location.getDropoffSuburb());
+       assertEquals(location.getPickupCity(),location.getDropoffCity());
 
     }
 
