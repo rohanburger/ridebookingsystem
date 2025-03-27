@@ -2,7 +2,7 @@ package za.ac.cput.factory;
 import org.w3c.dom.ls.LSOutput;
 import za.ac.cput.domain.Location;
 import za.ac.cput.helper.LocationHelper;
-
+//
 
 public class LocationFactory {
     
