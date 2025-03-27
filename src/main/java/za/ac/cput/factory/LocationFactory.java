@@ -20,8 +20,10 @@ public class LocationFactory {
         }
 
         Location location=new Location();
+        String pickupDetails=location.getPickupStreet() + " " + location.getPickupSuburb() + " " + location.getPickupCity();
+        String dropoffDetails=location.getDropoffStreet() + " " + location.getDropoffSuburb() + " " + location.getDropoffCity();
 
-        if(LocationHelper.isEqual(location.pickupDetails(),location.dropoffDetails())){
+        if(LocationHelper.isEqual(pickupDetails,dropoffDetails)){
             System.out.println("Pickup Location and Dropoff Location cannot be the same");
         }
         

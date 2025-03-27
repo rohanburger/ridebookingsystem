@@ -56,6 +56,18 @@ public class LocationRepository implements ILocationRepository{
 
     @Override
     public boolean delete(String locationId) {
-        return locationList.remove(locationId);
+        for(int i=0; i<locationList.size(); i++){
+            if(locationList.get(i).getLocationId().equals(locationId)){
+                locationList.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
+
+    public void clearLocation(){
+        locationList.clear();
+    }
+
+
 }
