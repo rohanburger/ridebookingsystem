@@ -6,20 +6,20 @@ package za.ac.cput.domain;
     Date:19/03/2025
 */
 public class Session {
-    private String sessionid;
+    private String sessionid;//Initialize all neccesary attributes
     private Passenger passenger;
     private Driver driver;
     private Location location;
-    private String passengerCount;
+    private int passengerCount;
     private float sessionAmount;
     private String sessionStatus;
 
-    public Session() {
+    public Session() {//Default constructor
 
     }
 
-    public Session(Builder builder) {
-        this.passenger = builder.passenger;
+    public Session(Builder builder) {//Constructor witht he paramenter of the builder
+        this.passenger = builder.passenger;//The Builder attributes are assigned the values from the builder pattern
         this.driver = builder.driver;
         this.location = builder.location;
         this.passengerCount = builder.passengerCount;
@@ -28,7 +28,7 @@ public class Session {
         this.sessionid = builder.sessionid;
     }
 
-    public Passenger getPassenger() {
+    public Passenger getPassenger() {//Get method retrieving the value
         return passenger;
     }
 
@@ -36,7 +36,7 @@ public class Session {
         return sessionStatus;
     }
 
-    public String getPassengerCount() {
+    public int getPassengerCount() {
         return passengerCount;
     }
 
@@ -57,30 +57,30 @@ public class Session {
     }
 
     @Override
-    public String toString() {
-        return "Session{" +
-                "passenger=" + passenger +
-                ", driver=" + driver +
-                ", location=" + location +
-                ", passengerCount=" + passengerCount +
-                ", sessionStatus='" + sessionStatus +
-                ", sessionAmount='" + sessionAmount +
-                '\'' +
-                '}';
+    public String toString() {//To String displays the attribute values as a string
+        return "Session"+'\n'+
+                "============================"+'\n'+
+                "Session id: " + sessionid +'\n'+
+                "PassengerCount: "+ passengerCount+ '\n'+
+                "Session Status: " + sessionStatus +'\n'+
+                "Session Amount: " + sessionAmount +'\n'+
+                passenger +'\n'+
+                driver +'\n'+
+                location+'\n' ;
     }
 
 
-    public static class Builder {
-        private String sessionid;
+    public static class Builder {//Builder class contained inside of the domain class
+        private String sessionid;//Attributes for the builder class
         private Passenger passenger;
         private Driver driver;
         private Location location;
-        private String passengerCount;
+        private int passengerCount;
         private String sessionStatus;
         private float sessionAmount;
         
 
-        public Builder setPassenger(Passenger passenger) {
+        public Builder setPassenger(Passenger passenger) {//Method with paramters that sets the value of the attribute ,expects a return of type builder
             this.passenger = passenger;
             return this;
 
@@ -97,7 +97,7 @@ public class Session {
 
         }
 
-        public Builder setPassengerCount(String passengerCount) {
+        public Builder setPassengerCount(int passengerCount) {
             this.passengerCount = passengerCount;
             return this;
 
@@ -120,7 +120,7 @@ public class Session {
             return this;
         }
 
-        public Session build() {
+        public Session build() {//Method that returns/builds a type Session
             return new Session(this);
         }
 

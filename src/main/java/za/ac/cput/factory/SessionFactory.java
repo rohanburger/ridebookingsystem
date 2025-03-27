@@ -9,26 +9,36 @@ import za.ac.cput.helper.SessionHelper;
     Date:19/03/2025
 */
 public class SessionFactory {
-    public static Session createSession(String sessionID, Passenger passenger, Driver driver, Location location, String passengerCount, float sessionAmount, String sessionStatus){
-        if (SessionHelper.isNullOrEmpty(passengerCount) || SessionHelper.isNullOrEmpty(sessionStatus)){
-            System.out.println( "Error:Passenger Count or Session Status is null or empty");
+    public static Session createSession(String sessionID, Passenger passenger, Driver driver, Location location, int passengerCount, float sessionAmount, String sessionStatus){
+
+        if (SessionHelper.isNullOrEmpty(sessionID)){//calls the String null or empty methods and assigned SessionId to the paremete of the methods
+            System.out.println("Error:Session ID is null or empty");//Output message if the if statement is true
         }
-        if (SessionHelper.notValidStatus(sessionStatus)){
-            System.out.println("Error:Session Status is not valid");
-        }
-        if (SessionHelper.tooLowAmountOrEmpty(sessionAmount)){
-            System.out.println("Error:Session Amount is too low or empty");
+        if (SessionHelper.isZero(passengerCount)){//call the methods , check if value is equal to zero
+            System.out.println( "Error:Passenger Count is Zero");//Output message if the if is true
         }
 
-        return new Session.Builder()
-                .setSessionid(sessionID)
+        if (SessionHelper.isNullOrEmpty(sessionStatus)) {//calls the String null or empty methods and assigned sessionStatus to the paremete of the methods
+            System.out.println("Error:Session Status is null or empty");//Output message if the if is true
+        }else {
+            if (SessionHelper.notValidStatus(sessionStatus)) {//Check if the status is a valid status
+                System.out.println("Error:Session Status is not valid");//Output message if the if is true
+            }
+        }
+
+        if (SessionHelper.tooLowAmount(sessionAmount)){//Methods called ensuring the value meets the specified criteria
+            System.out.println("Error:Session Amount is too low ");//Output message if the if is true
+        }
+
+        return new Session.Builder() //constructuon of the session object
+                .setSessionid(sessionID)//Chains muliple setter methods togther
                 .setPassenger(passenger)
                 .setDriver(driver)
                 .setLocation(location)
                 .setPassengerCount(passengerCount)
                 .setSessionAmount(sessionAmount)
                 .setSessionStatus(sessionStatus)
-                .build();
+                .build();//Create and return the session object
     }
 
 }
