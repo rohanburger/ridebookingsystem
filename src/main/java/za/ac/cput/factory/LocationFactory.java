@@ -2,7 +2,7 @@ package za.ac.cput.factory;
 import org.w3c.dom.ls.LSOutput;
 import za.ac.cput.domain.Location;
 import za.ac.cput.helper.LocationHelper;
-
+//
 
 public class LocationFactory {
     
@@ -19,9 +19,9 @@ public class LocationFactory {
             System.out.println("Dropoff Infromation is incomplete");
         }
 
-        Location location=new Location();
 
-        if(LocationHelper.isEqual(location.pickupDetails(),location.dropoffDetails())){
+
+        if(LocationHelper.isEqual(pickupStreet,dropoffStreet)&&LocationHelper.isEqual(pickupSuburb,dropoffSuburb)&&LocationHelper.isEqual(pickupCity,dropoffCity)){
             System.out.println("Pickup Location and Dropoff Location cannot be the same");
         }
         

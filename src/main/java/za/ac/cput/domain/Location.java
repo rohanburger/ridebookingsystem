@@ -54,12 +54,6 @@ public class Location {
     }
 
 
-    public String pickupDetails() {
-        return pickupStreet + " " + pickupSuburb + " " + pickupCity;
-    }
-    public String dropoffDetails() {
-        return dropoffStreet + " " + dropoffSuburb + " " + dropoffCity;
-    }
 
     @Override
     public String toString() {
