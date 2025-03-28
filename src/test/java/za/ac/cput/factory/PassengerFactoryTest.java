@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
 
-/*  PassengerFactory.java
-    Passenger factory class
+/*  PassengerFactoryTest.java
+    Passenger factory test class
     Author: Kelsey-Jane Fabe (220328293)
     Date: 25/03/2025
 */
@@ -31,8 +31,6 @@ class PassengerFactoryTest {
         System.out.println(p1.toString());
     }
 
-
-    //this test needs to pass
     @Test
     void testCreatePassengerWithAllAttributes() {
         Passenger p2 = PassengerFactory.createPassengerWithAllAttributes("P002", "Ruben", "Newman",
