@@ -1,8 +1,8 @@
 package za.ac.cput.repository;
 
-/*  PassengerFactory.java
-    Passenger repository class
-    Author: Kelsey-Jane Fabe
+/*  IPassengerRepository.java
+    Interface Passenger repository class
+    Author: Kelsey-Jane Fabe (220328293)
     Date: 23/03/2025
 */
 

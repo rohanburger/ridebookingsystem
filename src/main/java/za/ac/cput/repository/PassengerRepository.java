@@ -1,8 +1,8 @@
 package za.ac.cput.repository;
 
-/*  PassengerFactory.java
+/*  PassengerRepository.java
     Passenger repository class
-    Author: Kelsey-Jane Fabe
+    Author: Kelsey-Jane Fabe (220328293)
     Date: 23/03/2025
 */
 
@@ -30,11 +30,12 @@ public class PassengerRepository implements IPassengerRepository {
 
     @Override
     public List<Passenger> getAll() {
-        return null;
+        return passengerList;
     }
 
     @Override
     public boolean create(Passenger passenger) {
+        System.out.println("Passenger created: \n" + passenger + "\n");
         return passengerList.add(passenger); //creates object of Passenger class
     }
 
@@ -42,6 +43,7 @@ public class PassengerRepository implements IPassengerRepository {
     public Passenger read(String passengerId) { //represents pk of passenger record
         for(Passenger passenger : passengerList){
             if(passenger.getPassid().equals(passengerId)){ //check if passid object matches pk in the arraylist
+                System.out.println("Passenger List Read: \n" + passenger + "\n");
                 return passenger; //return if Passenger object is found in the list
             }
         }
@@ -54,6 +56,7 @@ public class PassengerRepository implements IPassengerRepository {
             if (passList.getPassid().equals(passengerId)) {
                 passengerList.remove(passList); //removes current Passenger object
                 passengerList.add(passenger); //adds updated Passenger object
+                System.out.println("Passenger List Updated: \n" + passenger + "\n");
                 return true; //return if object was updated
             }
         }
@@ -65,9 +68,14 @@ public class PassengerRepository implements IPassengerRepository {
         for(Passenger passenger : passengerList){
             if(passenger.getPassid().equals(passengerId)){
                 passengerList.remove(passenger); //remove the passenger from the list
+                System.out.println("Passenger List: (Passenger 3 deleted) \n" + passenger + "\n");
                 return true; //return if deleted
             }
         }
         return false; //return if not found
+    }
+    public void clearPassengers() {
+        passengerList.clear();//Clears the arraylist
+        System.out.println("All passengers have been cleared");
     }
 }

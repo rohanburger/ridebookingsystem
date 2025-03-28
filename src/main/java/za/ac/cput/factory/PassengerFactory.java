@@ -31,7 +31,7 @@ public class PassengerFactory {
             return null;
         }
 
-        if(!PassengerHelper.isNullOrEmpty(passid)) {
+        if(PassengerHelper.isNullOrEmpty(passid)) {
             return null;
         }
 

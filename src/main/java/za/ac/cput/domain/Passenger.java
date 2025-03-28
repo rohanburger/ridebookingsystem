@@ -2,7 +2,7 @@ package za.ac.cput.domain;
 
 /*  Passenger.java
     Passenger builder class
-    Author: Kelsey-Jane Fabe
+    Author: Kelsey-Jane Fabe (220328293)
     Date: 20/03/2025
 */
 

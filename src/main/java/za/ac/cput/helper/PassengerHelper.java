@@ -2,7 +2,7 @@ package za.ac.cput.helper;
 
 /*  PassengerHelper.java
     Passenger helper class
-    Author: Kelsey-Jane Fabe
+    Author: Kelsey-Jane Fabe (220328293)
     Date: 20/03/2025
 */
 

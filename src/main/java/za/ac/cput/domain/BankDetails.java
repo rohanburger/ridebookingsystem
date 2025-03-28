@@ -13,6 +13,10 @@ public class BankDetails {
     private String bankCardDate;
     private String bankCardCVV;
 
+    public BankDetails() {
+
+    }
+
 
     public BankDetails(String bankCardNum, String bankCardDate, String bankCardCVV) {
         this.bankCardNum = bankCardNum;
