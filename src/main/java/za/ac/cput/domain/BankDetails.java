@@ -7,20 +7,17 @@ package za.ac.cput.domain;
     Date:21/03/2025
 */
 
+
 public class BankDetails {
     private String bankCardNum;
     private String bankCardDate;
     private String bankCardCVV;
 
-    public BankDetails() {
 
-    }
-
-
-    public BankDetails (Builder builder) {
-        this.bankCardNum = builder.bankCardNum;
-        this.bankCardDate =builder.bankCardDate;
-        this.bankCardCVV = builder.bankCardCVV;
+    public BankDetails(String bankCardNum, String bankCardDate, String bankCardCVV) {
+        this.bankCardNum = bankCardNum;
+        this.bankCardDate = bankCardDate;
+        this.bankCardCVV = bankCardCVV;
     }
 
     public String getBankCardNum() {
@@ -36,12 +33,13 @@ public class BankDetails {
     }
 
     @Override
-    public String toString(){
-        return "BankDetails{" +
-            "bankCardNum='" + bankCardNum + '\'' +
-            ", bankCardDate='" + bankCardDate + '\'' +
-            ", bankCardCVV='" + bankCardCVV + '\'' +
-            '}';
+    public String toString() {
+        String s = "BankDetails{" +
+                "bankCardNum='" + bankCardNum + '\'' +
+                ", bankCardDate='" + bankCardDate + '\'' +
+                ", bankCardCVV='" + bankCardCVV + '\'' +
+                '}';
+        return s;
     }
 
     public static class Builder {
@@ -64,8 +62,17 @@ public class BankDetails {
             return this;
         }
 
+        @Override
+        public String toString() {
+            return "BankDetails{" +
+                    "bankCardNum='" + bankCardNum + '\'' +
+                    ", bankCardDate '" + bankCardDate+ '\'' +
+                    ", bankCardCVV = '" + bankCardCVV + '\'' +
+                    '}';
+        }
+
         public BankDetails build() {
-            return new BankDetails(this);
+            return new BankDetails(bankCardNum, bankCardDate, bankCardCVV);
         }
     }
 }
